@@ -22,7 +22,7 @@ export default function Cohort() {
       <div className="shell">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <Marker>05 / THE MINDS</Marker>
+            <Marker>The minds</Marker>
             <h2 className="mt-10 font-display text-[clamp(38px,6vw,96px)] font-semibold leading-[0.92] tracking-[-0.045em]">
               <MaskLines lines={['THE PEOPLE', 'BEHIND NVGENESIS.']} />
             </h2>
@@ -283,8 +283,7 @@ function StudentOverlay({ index, onClose, onNav }: { index: number | null; onClo
                 {[
                   ['ROLE', 'Student'],
                   ['COLLECTIVE', 'NVGENESIS'],
-                  ['INSTITUTION', 'National University – Fairview'],
-                  ['FACULTY', 'Professor Sam Chugthai'],
+                  ['FACULTY', 'Professor Sam Chughtai'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-4 border-b border-line py-3">
                     <dt className="label !text-[10px] text-mute">{k}</dt>

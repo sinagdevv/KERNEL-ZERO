@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { NAV, scrollToId } from '../data'
+import { NAV, TABS, scrollToId, type Tab } from '../data'
 import { EASE } from './ui'
 
 export function Wordmark({ className = '' }: { className?: string }) {
@@ -11,16 +11,8 @@ export function Wordmark({ className = '' }: { className?: string }) {
   )
 }
 
-export function Status() {
-  return (
-    <span className="label flex items-center gap-2 !text-[10px] text-mute">
-      <span className="animate-pulse-dot h-1.5 w-1.5 bg-lime" />
-      SYSTEM ONLINE
-    </span>
-  )
-}
-
-export default function Nav() {
+export default function Nav({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
+  const items = NAV[tab]
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState<string>('overview')
@@ -33,7 +25,7 @@ export default function Nav() {
       (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: '-45% 0px -50% 0px' },
     )
-    NAV.forEach((n) => {
+    items.forEach((n) => {
       const el = document.getElementById(n.id)
       if (el) io.observe(el)
     })
@@ -41,7 +33,7 @@ export default function Nav() {
       window.removeEventListener('scroll', onScroll)
       io.disconnect()
     }
-  }, [])
+  }, [items])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -65,13 +57,13 @@ export default function Nav() {
           scrolled && !open ? 'border-b border-line bg-obsidian/70 backdrop-blur-md' : 'border-b border-transparent'
         }`}
       >
-        <div className="shell flex h-16 items-center justify-between">
+        <div className="shell grid h-16 grid-cols-[1fr_auto_1fr] items-center">
           <button onClick={() => go('top')} className="cursor-pointer" aria-label="NVGENESIS, back to top">
             <Wordmark />
           </button>
-          <nav aria-label="Primary" className="hidden lg:block">
+          <nav aria-label="Primary" className="hidden justify-self-center lg:block">
             <ul className="flex items-center gap-8">
-              {NAV.map((n) => (
+              {items.map((n) => (
                 <li key={n.id}>
                   <button
                     onClick={() => go(n.id)}
@@ -90,10 +82,20 @@ export default function Nav() {
               ))}
             </ul>
           </nav>
-          <div className="flex items-center gap-5">
-            <span className="hidden sm:block">
-              <Status />
-            </span>
+          <div className="flex items-center justify-end gap-5 col-start-3">
+          <div className="hidden items-center gap-1 border border-line p-0.5 sm:flex" role="tablist" aria-label="Site sections">
+            {TABS.map((t) => (
+              <button
+                key={t.id}
+                role="tab"
+                aria-selected={tab === t.id}
+                onClick={() => setTab(t.id)}
+                className={`px-3 py-1.5 text-[13px] transition-colors cursor-pointer ${tab === t.id ? 'bg-paper text-obsidian' : 'text-mute hover:text-paper'}`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
             <button
               className="relative flex h-10 w-10 items-center justify-center lg:hidden cursor-pointer"
               aria-label={open ? 'Close menu' : 'Open menu'}
@@ -118,9 +120,9 @@ export default function Nav() {
           >
             <div className="grid-bg pointer-events-none absolute inset-0 opacity-40" />
             <nav aria-label="Mobile" className="shell relative flex flex-1 flex-col justify-center pt-16">
-              <p className="label mb-8 text-mute">INDEX / NAVIGATION</p>
+              <p className="mb-8 text-[13px] text-mute">Navigate</p>
               <ul className="border-t border-line">
-                {NAV.map((n, i) => (
+                {items.map((n, i) => (
                   <motion.li
                     key={n.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -129,15 +131,27 @@ export default function Nav() {
                     className="border-b border-line"
                   >
                     <button onClick={() => go(n.id)} className="flex w-full items-baseline gap-5 py-5 text-left cursor-pointer">
-                      <span className="label text-nv">0{i + 1}</span>
+                      <span className="text-[13px] text-nv">0{i + 1}</span>
                       <span className="font-display text-[clamp(28px,8vw,48px)] font-medium tracking-[-0.03em]">{n.label}</span>
                     </button>
                   </motion.li>
                 ))}
               </ul>
-              <div className="mt-10 flex items-center justify-between">
-                <Status />
-                <span className="label text-mute">NU — FAIRVIEW</span>
+              <div className="mt-10 flex gap-2" role="tablist">
+                {TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    role="tab"
+                    aria-selected={tab === t.id}
+                    onClick={() => {
+                      setTab(t.id)
+                      setOpen(false)
+                    }}
+                    className={`border px-4 py-2 text-[14px] cursor-pointer ${tab === t.id ? 'border-paper bg-paper text-obsidian' : 'border-line text-mute'}`}
+                  >
+                    {t.label}
+                  </button>
+                ))}
               </div>
             </nav>
           </motion.div>

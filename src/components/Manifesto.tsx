@@ -25,7 +25,7 @@ export default function Manifesto() {
       <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center">
         <div className="shell grid gap-14 py-24 lg:grid-cols-12 lg:gap-10 lg:py-0">
           <div className="lg:col-span-6">
-            <Marker>01 / OUR ORIGIN</Marker>
+            <Marker>Our origin</Marker>
             <h2 className="mt-10 overflow-hidden font-display text-[clamp(44px,7vw,112px)] font-semibold leading-[0.88] tracking-[-0.05em]">
               <motion.span style={{ x: x1 }} className="block whitespace-nowrap">
                 <MaskLines lines={['Intelligence']} />
@@ -58,8 +58,8 @@ export default function Manifesto() {
           <Reveal className="lg:col-span-6" delay={0.1}>
             <div className="relative border border-line bg-carbon/40 p-5 md:p-8">
               <div className="flex items-center justify-between">
-                <span className="label !text-[10px] text-mute">FIG.01 — FORWARD PASS</span>
-                <span className="label !text-[10px] text-nv">STAGE 0{stage + 1} / 04</span>
+                <span className="label !text-[10px] text-mute">Forward pass</span>
+                <span className="label !text-[10px] text-nv">Step {stage + 1} of 4</span>
               </div>
               <svg viewBox={`0 0 ${W} ${H}`} className="mt-4 w-full" aria-label={`Neural computation diagram, active stage ${STAGES[stage]}`} role="img">
                 {pts.slice(0, -1).map((col, c) =>

@@ -1,10 +1,26 @@
-export const NAV = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'learn', label: 'What We Learn' },
-  { id: 'professor', label: 'Our Professor' },
-  { id: 'cohort', label: 'The Cohort' },
-  { id: 'lab', label: 'The Lab' },
-] as const
+export type Tab = 'program' | 'people'
+
+export const TABS: { id: Tab; label: string }[] = [
+  { id: 'program', label: 'Program' },
+  { id: 'people', label: 'People' },
+]
+
+export const NAV: Record<Tab, { id: string; label: string }[]> = {
+  program: [
+    { id: 'overview', label: 'Overview' },
+    { id: 'learn', label: 'What We Learn' },
+    { id: 'lab', label: 'The Lab' },
+    { id: 'roadmap', label: 'Road Ahead' },
+  ],
+  people: [
+    { id: 'professor', label: 'Our Professor' },
+    { id: 'cohort', label: 'The Cohort' },
+  ],
+}
+
+export const PROFESSOR_LINKEDIN = 'https://www.linkedin.com/in/samchughtai/'
+
+const SECTION_TAB: Record<string, Tab> = { professor: 'people', cohort: 'people' }
 
 export type Module = {
   name: string
@@ -121,5 +137,12 @@ export function initials(name: string) {
 }
 
 export function scrollToId(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const tab = SECTION_TAB[id] ?? 'program'
+  const go = () => {
+    if (id === 'top') window.scrollTo({ top: 0, behavior: 'smooth' })
+    else document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  if (document.getElementById(id) || id === 'top') return go()
+  window.dispatchEvent(new CustomEvent('nv:tab', { detail: tab }))
+  setTimeout(go, 80)
 }

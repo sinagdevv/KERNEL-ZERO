@@ -5,7 +5,7 @@ export const EASE = [0.22, 1, 0.36, 1] as const
 
 export function Marker({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`label flex items-center gap-3 text-mute ${className}`}>
+    <div className={`flex items-center gap-3 text-[13px] text-mute ${className}`}>
       <span className="h-px w-8 bg-nv" />
       <span>{children}</span>
     </div>

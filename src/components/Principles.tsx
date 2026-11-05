@@ -43,7 +43,7 @@ export default function Principles() {
   return (
     <section className="relative border-t border-line py-24 md:py-36">
       <div className="shell">
-        <Marker>06 / OUR PRINCIPLES</Marker>
+        <Marker>Our principles</Marker>
         <h2 className="mt-10 font-display text-[clamp(38px,7vw,120px)] font-semibold leading-[0.9] tracking-[-0.05em]">
           <MaskLines lines={['QUESTION.', <span className="text-mute">BUILD.</span>, <>UNDERSTAND<span className="text-nv">.</span></>]} />
         </h2>

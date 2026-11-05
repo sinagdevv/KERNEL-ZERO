@@ -23,7 +23,7 @@ export default function Roadmap() {
       <div className="shell">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <Marker>07 / THE ROAD AHEAD</Marker>
+            <Marker>The road ahead</Marker>
             <h2 className="mt-10 font-display text-[clamp(38px,6vw,96px)] font-semibold leading-[0.92] tracking-[-0.045em]">
               <MaskLines lines={["WHAT WE'RE", 'EXPLORING NEXT.']} />
             </h2>

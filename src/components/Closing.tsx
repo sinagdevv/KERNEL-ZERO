@@ -74,13 +74,12 @@ export default function Closing() {
           <div className="md:col-span-5">
             <Wordmark className="text-[28px]" />
             <p className="label mt-6 !text-[10px] text-mute">AI CLASS COLLECTIVE</p>
-            <p className="label mt-2 !text-[10px] text-mute">NATIONAL UNIVERSITY – FAIRVIEW</p>
             <p className="label mt-2 !text-[10px] text-mute">GUIDED BY PROFESSOR SAM CHUGTHAI</p>
           </div>
           <nav aria-label="Footer" className="md:col-span-4">
             <p className="label !text-[10px] text-nv">INDEX</p>
             <ul className="mt-4 grid grid-cols-2 gap-y-3">
-              {[...NAV, { id: 'roadmap', label: 'Road Ahead' }].map((n) => (
+              {[...NAV.program, ...NAV.people].map((n) => (
                 <li key={n.id}>
                   <button onClick={() => scrollToId(n.id)} className="group relative text-[14px] text-mute transition-colors hover:text-paper cursor-pointer">
                     {n.label}

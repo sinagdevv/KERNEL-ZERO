@@ -18,7 +18,7 @@ export default function Lab() {
       <div className="shell relative">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <Marker>03 / THE EXPERIMENT</Marker>
+            <Marker>The experiment</Marker>
             <h2 className="mt-10 font-display text-[clamp(38px,6vw,96px)] font-semibold leading-[0.92] tracking-[-0.045em]">
               <MaskLines lines={['LEARNING THROUGH', 'EXPLORATION.']} />
             </h2>
