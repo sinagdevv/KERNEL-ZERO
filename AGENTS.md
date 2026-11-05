@@ -35,3 +35,15 @@ This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin con
 `src/main.tsx` imports `src/index.css`, so global font wiring belongs in `src/index.css`. Keep CSS `@import` statements first, then add any `@font-face` rules and font-family defaults there.
 
 Tailwind emits utility classes in `@layer utilities`, and CSS outside any cascade layer overrides every layer regardless of specificity. Put global element styles, such as resets and defaults for `body`, headings, `button`, or `input`, inside `@layer base { ... }` so utility classes on those elements still apply. Tailwind's Preflight already applies `box-sizing: border-box`, removes default margins, and sets `font: inherit` on form controls, so do not repeat those rules.
+
+## Project Skills
+
+Project-scoped agent skills are installed in `.agents/skills/` (linked into `.claude/skills/`) and tracked in `skills-lock.json`. Install and manage them with pnpm: `pnpm dlx skills add <owner/repo@skill> -y`. Use the matching skill instead of improvising when a task falls in its area:
+
+- `find-animation-opportunities` - read-only scan for UI that should animate but doesn't; proposes motion with exact values. Use before adding motion.
+- `improve-animations` - audit existing motion and produce prioritized implementation plans. Read-only; it plans, you implement.
+- `framer-motion-react` - Framer Motion / `motion` in React: `AnimatePresence`, motion components, layout animations. Add the dependency with `pnpm add motion`.
+- `tailwind-4-docs` - Tailwind CSS v4 utilities, variants and configuration. This project is on v4, so do not apply v3 patterns.
+- `svg-logo-designer` - create SVG logos and brand marks in several variations.
+- `better-icons` - search 200+ Iconify icon libraries and fetch SVGs (`better-icons search <query>`, `better-icons get <id>`).
+- `find-skills` - discover and install further skills.

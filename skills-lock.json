@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "SVG Logo Designer": {
+      "source": "rknall/claude-skills",
+      "sourceType": "github",
+      "skillPath": "svg-logo-designer/SKILL.md",
+      "computedHash": "c591208a052cc9f7deb77be1183e4627daf54dbf575ea2653f519f29fe3bd4c8"
+    },
+    "better-icons": {
+      "source": "better-auth/better-icons",
+      "sourceType": "github",
+      "skillPath": "skills/SKILL.md",
+      "computedHash": "656a618d6d5d5e9c567253eff57a06bee3be5d4fb983bdc401a46a209c5b76de"
+    },
+    "find-animation-opportunities": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-animation-opportunities/SKILL.md",
+      "computedHash": "465d087c41768e4f14ed640dd049036009f613feb55baaa5831b68b33178f9d2"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396"
+    },
+    "framer-motion-react": {
+      "source": "c-jeril/framer-motion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/framer-motion-react/SKILL.md",
+      "computedHash": "3d3fc832d8a3e3729919c316d3cdc6c7e7e3235e2e0c6868929b3565c8941ae8"
+    },
+    "improve-animations": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "computedHash": "f6652a3bb94950baa33c684cc0966c838eb65cf22ebb5769a4f51ea205c254fe"
+    },
+    "tailwind-4-docs": {
+      "source": "lombiq/tailwind-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tailwind-4-docs/SKILL.md",
+      "computedHash": "de756f5f03cc20a029983875b00b9dfef9d0ba8567d242c5cbb0262037d0a134"
+    }
+  }
+}
