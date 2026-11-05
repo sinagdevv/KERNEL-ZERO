@@ -1,0 +1,10 @@
+{
+  "description": "Premium digital hub for an AI-focused university class exploring machine learning, language models, agents, and security. Showcases the collective's learning journey, faculty, and 14 students through interactive visualizations and editorial design.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
