@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, LayoutGrid, List, Search, X } 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { STUDENTS } from '../data'
 import Portrait from './Portrait'
+import { GithubIcon, GmailIcon, LinkedinIcon } from './SocialIcons'
 import { EASE, Marker, MaskLines, Reveal } from './ui'
 
 const pad = (n: number) => String(n).padStart(2, '0')
@@ -139,10 +140,9 @@ export default function Cohort() {
                     className="group grid w-full grid-cols-[3rem_1fr_auto] items-center gap-4 py-5 text-left transition-colors duration-200 hover:bg-carbon/60 md:grid-cols-12 cursor-pointer"
                   >
                     <span className="label pl-2 text-mute transition-colors group-hover:text-nv md:col-span-1">{pad(s.i + 1)}</span>
-                    <span className="font-display text-[clamp(20px,2.6vw,36px)] font-medium tracking-[-0.03em] transition-transform duration-[240ms] group-hover:translate-x-1.5 md:col-span-7">
+                    <span className="font-display text-[clamp(20px,2.6vw,36px)] font-medium tracking-[-0.03em] transition-transform duration-[240ms] group-hover:translate-x-1.5 md:col-span-10">
                       {s.name}
                     </span>
-                    <span className="label hidden !text-[10px] text-mute md:col-span-3 md:block">NVGENESIS / STUDENT</span>
                     <span className="flex justify-end pr-2 md:col-span-1">
                       <ArrowUpRight className="h-5 w-5 text-mute transition-transform duration-[240ms] group-hover:rotate-45 group-hover:text-lime" strokeWidth={1.25} />
                     </span>
@@ -189,7 +189,6 @@ function StudentCard({ name, index, onOpen }: { name: string; index: number; onO
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>
           <p className="font-display text-[20px] font-medium leading-tight tracking-[-0.025em] transition-colors duration-200 group-hover:text-lime">{name}</p>
-          <p className="label mt-2 !text-[10px] text-mute">NVGENESIS / STUDENT</p>
         </div>
         <span className="label pt-1 !text-[10px] text-mute">N{pad(index + 1)}</span>
       </div>
@@ -283,13 +282,32 @@ function StudentOverlay({ index, onClose, onNav }: { index: number | null; onClo
                 {[
                   ['ROLE', 'Student'],
                   ['COLLECTIVE', 'NVGENESIS'],
-                  ['FACULTY', 'Professor Sam Chughtai'],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-4 border-b border-line py-3">
                     <dt className="label !text-[10px] text-mute">{k}</dt>
                     <dd className="text-right text-[14px]">{v}</dd>
                   </div>
                 ))}
+                <div className="flex items-center justify-between gap-4 border-b border-line py-3">
+                  <dt className="label !text-[10px] text-mute">SOCIALS</dt>
+                  <dd className="flex gap-2">
+                    {[
+                      { name: 'GitHub', Icon: GithubIcon },
+                      { name: 'Gmail', Icon: GmailIcon },
+                      { name: 'LinkedIn', Icon: LinkedinIcon },
+                    ].map(({ name, Icon }) => (
+                      <span
+                        key={name}
+                        role="img"
+                        aria-label={`${name} (not added yet)`}
+                        title={`${name} — not added yet`}
+                        className="flex h-9 w-9 items-center justify-center border border-dashed border-line text-mute"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </span>
+                    ))}
+                  </dd>
+                </div>
               </dl>
               <div className="mt-auto flex items-center justify-between pt-10">
                 <span className="label !text-[10px] text-mute">{pad(index + 1)} / 14</span>

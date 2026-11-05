@@ -57,11 +57,11 @@ export default function Nav({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => voi
           scrolled && !open ? 'border-b border-line bg-obsidian/70 backdrop-blur-md' : 'border-b border-transparent'
         }`}
       >
-        <div className="shell grid h-16 grid-cols-[1fr_auto_1fr] items-center">
-          <button onClick={() => go('top')} className="cursor-pointer" aria-label="NVGENESIS, back to top">
+        <div className="shell relative flex h-16 items-center justify-between">
+          <button onClick={() => go('top')} className="shrink-0 cursor-pointer" aria-label="NVGENESIS, back to top">
             <Wordmark />
           </button>
-          <nav aria-label="Primary" className="hidden justify-self-center lg:block">
+          <nav aria-label="Primary" className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
             <ul className="flex items-center gap-8">
               {items.map((n) => (
                 <li key={n.id}>
@@ -82,7 +82,7 @@ export default function Nav({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => voi
               ))}
             </ul>
           </nav>
-          <div className="flex items-center justify-end gap-5 col-start-3">
+          <div className="flex items-center justify-end gap-5">
           <div className="hidden items-center gap-1 border border-line p-0.5 sm:flex" role="tablist" aria-label="Site sections">
             {TABS.map((t) => (
               <button

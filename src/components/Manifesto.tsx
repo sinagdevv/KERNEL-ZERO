@@ -26,7 +26,7 @@ export default function Manifesto() {
         <div className="shell grid gap-14 py-24 lg:grid-cols-12 lg:gap-10 lg:py-0">
           <div className="lg:col-span-6">
             <Marker>Our origin</Marker>
-            <h2 className="mt-10 overflow-hidden font-display text-[clamp(44px,7vw,112px)] font-semibold leading-[0.88] tracking-[-0.05em]">
+            <h2 className="mt-10 overflow-hidden font-display text-[clamp(38px,5.2vw,76px)] font-semibold leading-[0.88] tracking-[-0.05em]">
               <motion.span style={{ x: x1 }} className="block whitespace-nowrap">
                 <MaskLines lines={['Intelligence']} />
               </motion.span>
