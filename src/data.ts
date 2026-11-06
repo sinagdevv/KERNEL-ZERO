@@ -123,27 +123,27 @@ export const FACILITATORS = [
   {
     name: "Sai Adalim",
     label: "SAI ADALIM",
-    image: "/portraits/sai-adalim-original.jpg",
+    image: "/portraits/sai-adalim.png",
   },
   {
     name: "John Ray Cacananta",
     label: "JOHN RAY CACANANTA",
-    image: "/portraits/john-ray-cacananta-original.png",
+    image: "/portraits/john-ray-cacananta.png",
   },
   {
     name: "Jee Daguman",
     label: "JEE DAGUMAN",
-    image: "/portraits/jee-daguman-original.png",
+    image: "/portraits/jee-daguman.png",
   },
   {
     name: "Kenneth Edralin",
     label: "KENNETH EDRALIN",
-    image: "/portraits/kenneth-edralin-original.png",
+    image: "/portraits/kenneth-edralin.png",
   },
   {
     name: "Ares Yael Garcia",
     label: "ARES YAEL GARCIA",
-    image: "/portraits/ares-yael-garcia-original.jpg",
+    image: "/portraits/ares-yael-garcia.jpe",
   },
 ] as const
 
