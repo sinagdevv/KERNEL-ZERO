@@ -41,30 +41,33 @@ export default function Facilitators() {
                 onClick={() => setActive(index)}
                 onMouseEnter={() => setActive(index)}
                 onFocus={() => setActive(index)}
-                className={`group relative min-h-[360px] overflow-hidden border text-left transition-[border-color,background,transform] duration-500 md:min-h-[500px] ${
+                className={`group relative overflow-hidden border text-left transition-[border-color,background,transform] duration-500 ${
                   isActive
                     ? "border-nv bg-carbon/70 md:-translate-y-3"
                     : "border-line bg-carbon/20 hover:border-mute"
                 }`}
                 aria-label={`Focus ${person.name}`}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(5,7,5,0.96)_100%)]" />
-                <div
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-40"
-                  }`}
-                >
+                <div className="relative aspect-[4/5] overflow-hidden bg-carbon">
                   <img
                     src={person.image}
                     alt=""
-                    className="h-full w-full object-contain object-bottom mix-blend-screen"
+                    loading="lazy"
+                    decoding="async"
+                    className={`h-full w-full object-contain object-center transition-[filter,transform,opacity] duration-500 ${
+                      isActive
+                        ? "scale-[1.02] opacity-100"
+                        : "opacity-75 grayscale-[0.2] group-hover:opacity-100 group-hover:grayscale-0"
+                    }`}
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgba(5,7,5,0.24))]" />
+                  <span className="pointer-events-none absolute bottom-4 left-4 h-8 w-8 border-b border-l border-nv/70" />
                 </div>
                 <span className="absolute left-4 top-4 label text-nv">
                   0{index + 1} / NODE
                 </span>
                 <span className="absolute right-4 top-4 h-8 w-8 border-r border-t border-line transition-colors group-hover:border-nv" />
-                <div className="absolute inset-x-4 bottom-4">
+                <div className="bg-obsidian/95 p-4">
                   <p className="label mb-3 text-mute">STUDENT FACILITATOR</p>
                   <p
                     className={`font-display text-[clamp(20px,2vw,28px)] font-medium leading-none tracking-[-0.035em] transition-colors ${

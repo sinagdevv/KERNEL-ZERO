@@ -6,7 +6,7 @@ export const BRAND = {
   tagline: "Understanding Intelligence at Its Core.",
   secondaryTagline:
     "Where the next generation learns to engineer intelligence.",
-  institution: "National University – Fairview",
+  institution: "AI LEARNING COLLECTIVE",
   professor: "Sam Chughtai",
 }
 
@@ -123,27 +123,27 @@ export const FACILITATORS = [
   {
     name: "Sai Adalim",
     label: "SAI ADALIM",
-    image: "/portraits/sai-adalim.png",
+    image: "/portraits/sai-adalim-original.jpg",
   },
   {
     name: "John Ray Cacananta",
     label: "JOHN RAY CACANANTA",
-    image: "/portraits/john-ray-cacananta.png",
+    image: "/portraits/john-ray-cacananta-original.png",
   },
   {
     name: "Jee Daguman",
     label: "JEE DAGUMAN",
-    image: "/portraits/jee-daguman.png",
+    image: "/portraits/jee-daguman-original.png",
   },
   {
     name: "Kenneth Edralin",
     label: "KENNETH EDRALIN",
-    image: "/portraits/kenneth-edralin.png",
+    image: "/portraits/kenneth-edralin-original.png",
   },
   {
     name: "Ares Yael Garcia",
     label: "ARES YAEL GARCIA",
-    image: "/portraits/ares-yael-garcia.png",
+    image: "/portraits/ares-yael-garcia-original.jpg",
   },
 ] as const
 

@@ -58,8 +58,10 @@ export default function Faculty() {
         </div>
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-12 lg:gap-0">
           <div className="relative min-h-[560px] overflow-hidden border border-line bg-carbon/30 lg:col-span-7 lg:min-h-[720px]">
-            <FacultyGeometry />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_38%,rgba(118,185,0,0.18),transparent_38%),linear-gradient(120deg,transparent_50%,rgba(5,7,5,0.86))]" />
+            <div className="absolute inset-0 opacity-35">
+              <FacultyGeometry />
+            </div>
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,5,0.04),rgba(5,7,5,0.16))]" />
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -69,9 +71,11 @@ export default function Faculty() {
               className="absolute inset-x-[7%] bottom-0 top-[8%] flex items-end justify-center"
             >
               <img
-                src="/portraits/sam-chughtai-cutout.png"
+                src="/portraits/sam-chughtai-original.png"
                 alt="Sam Chughtai"
-                className="h-full w-full object-contain object-bottom drop-shadow-[0_0_36px_rgba(118,185,0,0.14)]"
+                className="h-full w-full object-contain object-center drop-shadow-[0_0_36px_rgba(118,185,0,0.14)]"
+                decoding="async"
+                fetchPriority="high"
               />
             </motion.div>
             <div className="absolute left-5 top-5 label text-nv">
@@ -91,7 +95,7 @@ export default function Faculty() {
               </h2>
               <Reveal delay={0.18}>
                 <p className="mt-8 font-display text-[20px] leading-snug text-paper/85">
-                  Professor / Class Mentor
+                  Professor / AI Class Mentor
                 </p>
                 <p className="mt-6 text-[16px] leading-relaxed text-mute">
                   Professor Sam Chughtai guides our exploration of artificial

@@ -127,8 +127,8 @@ export default function Closing() {
           <div className="md:col-span-3 md:text-right">
             <p className="label !text-[10px] text-nv">NOTICE</p>
             <p className="mt-4 text-[12px] leading-relaxed text-mute">
-              A student class project at {BRAND.institution}. Not affiliated
-              with, sponsored, or endorsed by NVIDIA.
+              A student class project. Not affiliated with, sponsored, or
+              endorsed by NVIDIA.
             </p>
           </div>
         </div>
