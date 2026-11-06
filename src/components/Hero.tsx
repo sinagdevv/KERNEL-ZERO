@@ -1,12 +1,15 @@
-import { motion } from 'motion/react'
-import { ArrowDownRight, ArrowRight } from 'lucide-react'
-import HeroCanvas from './HeroCanvas'
-import { EASE, Magnetic, MaskLines } from './ui'
-import { scrollToId } from '../data'
+import { motion } from "motion/react"
+import { ArrowDownRight, ArrowRight } from "lucide-react"
+import HeroCanvas from "./HeroCanvas"
+import { BRAND, scrollToId } from "../data"
+import { EASE, Magnetic, MaskLines } from "./ui"
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden" >
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden"
+    >
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0 }}
@@ -15,56 +18,64 @@ export default function Hero() {
       >
         <HeroCanvas />
       </motion.div>
-      {/* readability vignette */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,rgba(8,10,8,0.92)_0%,rgba(8,10,8,0.55)_45%,transparent_75%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-obsidian to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,rgba(5,7,5,0.94)_0%,rgba(5,7,5,0.62)_42%,transparent_76%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-obsidian to-transparent" />
 
-      <div className="shell relative flex flex-1 flex-col justify-end pb-24 pt-32 md:justify-center md:pb-20">
-        <h1 className="font-display text-[clamp(44px,8vw,128px)] font-semibold leading-[0.95] tracking-[-0.04em]">
+      <div className="shell relative flex flex-1 flex-col justify-center pb-16 pt-32 md:pb-20">
+        <div className="mb-8 flex items-center gap-3">
+          <span className="h-px w-10 bg-nv" />
+          <span className="label text-paper">{BRAND.institution}</span>
+        </div>
+        <h1 className="max-w-[1100px] font-display text-[clamp(52px,10.8vw,164px)] font-semibold leading-[0.84] tracking-[-0.065em]">
           <MaskLines
             animateNow
             delay={0.4}
             lines={[
-              <>Stay ahead</>,
-              <>
-                of the{' '}
-                <span className="text-nv">curve.</span>
-              </>,
+              "INTELLIGENCE",
+              "BEGINS AT",
+              <span className="text-nv">THE CORE.</span>,
             ]}
           />
         </h1>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-12">
+        <div className="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease: EASE }}
-            className="max-w-[460px] text-[15px] leading-relaxed text-mute md:col-span-5"
+            className="max-w-[500px] text-[16px] leading-relaxed text-mute md:col-span-5"
           >
-            NVGENESIS is a student group learning how AI systems actually work: language models, agents, retrieval, security and the GPUs underneath them.
+            {BRAND.name} is an AI class collective exploring how intelligent
+            systems learn, reason, interact, and operate securely.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.15, ease: EASE }}
-            className="flex flex-wrap items-start gap-3 md:col-span-7 md:items-end"
+            className="flex flex-wrap items-start gap-3 md:col-span-7 md:justify-end"
           >
-            <Magnetic onClick={() => scrollToId('overview')}>
-              What we study <ArrowDownRight className="h-4 w-4 transition-transform duration-200 group-hover:rotate-[-45deg]" />
+            <Magnetic onClick={() => scrollToId("learn")}>
+              Explore the class{" "}
+              <ArrowDownRight className="h-4 w-4 transition-transform duration-200 group-hover:rotate-[-45deg]" />
             </Magnetic>
-            <Magnetic variant="ghost" onClick={() => scrollToId('professor')}>
-              Meet the people <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <Magnetic variant="ghost" onClick={() => scrollToId("professor")}>
+              Meet the people{" "}
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Magnetic>
           </motion.div>
         </div>
       </div>
 
       <div className="shell relative flex items-end justify-between pb-6">
-        <span />
-        <button onClick={() => scrollToId('overview')} className="flex items-center gap-3 cursor-pointer" aria-label="Scroll to overview">
-          <span className="text-[12px] text-mute">Scroll</span>
-          <span className="relative h-10 w-px overflow-hidden bg-line">
-            <span className="animate-scroll-line absolute inset-x-0 top-0 h-1/2 bg-lime" />
+        <span className="label text-mute">{BRAND.secondaryTagline}</span>
+        <button
+          onClick={() => scrollToId("learn")}
+          aria-label="Scroll to what we learn"
+          className="group flex items-center gap-3 text-mute transition-colors hover:text-paper cursor-pointer"
+        >
+          <span className="label !text-[10px]">Scroll to enter</span>
+          <span className="flex h-8 w-8 items-center justify-center border border-line transition-colors group-hover:border-nv">
+            <ArrowDownRight className="h-4 w-4 text-nv" />
           </span>
         </button>
       </div>

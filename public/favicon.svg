@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <path d="M0 0H26L32 6V32H6L0 26Z" fill="#080a08"/>
-  <path d="M8.5 24V8L23.5 24V8" fill="none" stroke="#76b900" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="butt"/>
-  <rect x="24" y="3" width="4" height="4" fill="#a3ff12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">KERNEL//ZERO mark</title>
+  <desc id="desc">A geometric K, slash, and zero monogram.</desc>
+  <rect width="64" height="64" rx="10" fill="#050705"/>
+  <path d="M12 44V20h7v8l12-8h9L26 31l15 13h-10L19 33v11h-7Z" fill="#F4F6F2"/>
+  <path d="M43 15v34" stroke="#A3FF12" stroke-width="4"/>
+  <circle cx="54" cy="39" r="7" fill="none" stroke="#76B900" stroke-width="4"/>
 </svg>

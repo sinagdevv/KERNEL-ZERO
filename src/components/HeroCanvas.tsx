@@ -109,7 +109,7 @@ export default function HeroCanvas() {
         project(dust[i], ry * 0.6, rx * 0.6, cx - mouse.sx * 30, cy - mouse.sy * 20, S, tmp, 0)
         const a = Math.max(0, 0.5 - (tmp[2] + 3) * 0.08)
         if (a <= 0.02) continue
-        ctx.fillStyle = i % 9 === 0 ? `rgba(118,185,0,${a})` : `rgba(245,247,243,${a * 0.55})`
+        ctx.fillStyle = i % 9 === 0 ? `rgba(118,185,0,${a})` : `rgba(244,246,242,${a * 0.55})`
         const s = tmp[2] < 0 ? 1.4 : 0.9
         ctx.fillRect(tmp[0], tmp[1], s, s)
       }
@@ -143,7 +143,7 @@ export default function HeroCanvas() {
         const z = proj[i * 3 + 2]
         const a = 0.25 + (1 - (z + 1.4) / 2.8) * 0.65
         const s = z < 0 ? 2.2 : 1.5
-        ctx.fillStyle = `rgba(245,247,243,${a})`
+        ctx.fillStyle = `rgba(244,246,242,${a})`
         ctx.fillRect(proj[i * 3] - s / 2, proj[i * 3 + 1] - s / 2, s, s)
       }
 

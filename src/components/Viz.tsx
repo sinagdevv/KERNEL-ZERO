@@ -2,8 +2,8 @@ import type { Module } from '../data'
 
 const G = '#76B900'
 const L = '#A3FF12'
-const W = '#F5F7F3'
-const B = '#263026'
+const W = '#F4F6F2'
+const B = '#273027'
 
 /** Small animated technical diagrams keyed by topic. */
 export default function Viz({ kind, className = '' }: { kind: Module['viz']; className?: string }) {
@@ -41,7 +41,7 @@ function Net() {
         ),
       )}
       {pts.flat().map((p, i) => (
-        <rect key={i} x={p.x - 3} y={p.y - 3} width="6" height="6" fill="#080A08" stroke={i % 4 === 0 ? L : W} strokeWidth="0.8" />
+        <rect key={i} x={p.x - 3} y={p.y - 3} width="6" height="6" fill="#050705" stroke={i % 4 === 0 ? L : W} strokeWidth="0.8" />
       ))}
     </g>
   )
@@ -68,8 +68,8 @@ function Attn() {
       )}
       {xs.map((x, i) => (
         <g key={i}>
-          <rect x={x - 10} y={18} width="20" height="12" stroke={W} strokeWidth="0.8" fill="#080A08" />
-          <rect x={x - 10} y={110} width="20" height="12" stroke={B} strokeWidth="0.8" fill="#121612" />
+          <rect x={x - 10} y={18} width="20" height="12" stroke={W} strokeWidth="0.8" fill="#050705" />
+          <rect x={x - 10} y={110} width="20" height="12" stroke={B} strokeWidth="0.8" fill="#111511" />
         </g>
       ))}
     </g>
@@ -93,7 +93,7 @@ function Loop() {
       </circle>
       {pos.map(([x, y], i) => (
         <g key={i}>
-          <rect x={x - 26} y={y - 8} width="52" height="16" fill="#080A08" stroke={W} strokeWidth="0.8" />
+          <rect x={x - 26} y={y - 8} width="52" height="16" fill="#050705" stroke={W} strokeWidth="0.8" />
           <text x={x} y={y + 3} textAnchor="middle" fill={W} fontSize="7" fontFamily="JetBrains Mono" letterSpacing="1">
             {labels[i]}
           </text>
