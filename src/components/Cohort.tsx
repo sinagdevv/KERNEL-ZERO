@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "motion/react"
 import { ArrowUpRight, Grid2X2, List, Search, X } from "lucide-react"
 import { useMemo, useState } from "react"
 import { initials, STUDENTS } from "../data"
-import { EASE, Marker, MaskLines, Reveal } from "./ui"
+import { EASE, Marker, MaskLines } from "./ui"
 
 function markFor(index: number) {
   const rotation = (index * 37) % 360
@@ -67,15 +67,6 @@ export default function Cohort() {
               />
             </h2>
           </div>
-          <Reveal className="self-end lg:col-span-4" delay={0.1}>
-            <p className="max-w-[360px] text-[16px] leading-relaxed text-mute">
-              A photography-free directory for a cohort learning to understand
-              intelligence from the inside out.
-            </p>
-            <p className="label mt-6 text-nv">
-              16 CONFIRMED STUDENTS / NO SOCIAL LINKS
-            </p>
-          </Reveal>
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-y border-line py-3 md:mt-20 sm:flex-row sm:items-center sm:justify-between">

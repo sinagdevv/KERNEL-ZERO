@@ -124,13 +124,6 @@ export default function Closing() {
               ))}
             </ul>
           </nav>
-          <div className="md:col-span-3 md:text-right">
-            <p className="label !text-[10px] text-nv">NOTICE</p>
-            <p className="mt-4 text-[12px] leading-relaxed text-mute">
-              A student class project. Not affiliated with, sponsored, or
-              endorsed by NVIDIA.
-            </p>
-          </div>
         </div>
         <div className="shell flex flex-col gap-3 border-t border-line py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="label !text-[10px] text-paper">
