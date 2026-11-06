@@ -69,7 +69,7 @@ export default function Faculty() {
               className="absolute inset-x-[7%] bottom-0 top-[8%] flex items-end justify-center"
             >
               <img
-                src="/portraits/sam-chughtai.png"
+                src="/portraits/sam-chughtai-cutout.png"
                 alt="Sam Chughtai"
                 className="h-full w-full object-contain object-bottom drop-shadow-[0_0_36px_rgba(118,185,0,0.14)]"
               />
