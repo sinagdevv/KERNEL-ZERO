@@ -149,7 +149,7 @@ function NeuralMode() {
                   <line
                     key={`${l}-${i}-${j}`}
                     x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-                    stroke={reached && strength > 0.35 ? (l === wave - 1 ? '#A3FF12' : '#76B900') : '#263026'}
+                    stroke={reached && strength > 0.35 ? (l === wave - 1 ? '#A3FF12' : '#76B900') : '#273027'}
                     strokeOpacity={reached ? Math.min(1, 0.25 + strength * 0.7) : 1}
                     strokeWidth={reached ? 0.6 + strength * 1.2 : 0.7}
                     style={{ transition: 'all 300ms' }}
@@ -186,19 +186,19 @@ function NeuralMode() {
                   {isInput && <rect x={p.x - 22} y={p.y - 22} width="44" height="44" fill="transparent" stroke="transparent" />}
                   <rect
                     x={p.x - 9} y={p.y - 9} width="18" height="18"
-                    fill={v > 0.55 ? '#A3FF12' : '#080A08'}
+                    fill={v > 0.55 ? '#A3FF12' : '#050705'}
                     fillOpacity={v > 0.55 ? Math.min(1, v) : 1}
-                    stroke={v > 0.3 ? '#76B900' : '#8B938C'}
+                    stroke={v > 0.3 ? '#76B900' : '#969F96'}
                     strokeWidth="1"
                     style={{ transition: 'all 300ms' }}
                   />
                   {isInput && (
-                    <text x={p.x - 24} y={p.y + 4} textAnchor="end" fill="#F5F7F3" fontSize="12" fontFamily="JetBrains Mono">
+                    <text x={p.x - 24} y={p.y + 4} textAnchor="end" fill="#F4F6F2" fontSize="12" fontFamily="JetBrains Mono">
                       {INPUT_NAMES[i]} = {inputs[i]}
                     </text>
                   )}
                   {l === 3 && (
-                    <text x={p.x + 18} y={p.y + 4} fill={i === best && wave === 3 ? '#A3FF12' : '#8B938C'} fontSize="11" fontFamily="JetBrains Mono">
+                    <text x={p.x + 18} y={p.y + 4} fill={i === best && wave === 3 ? '#A3FF12' : '#969F96'} fontSize="11" fontFamily="JetBrains Mono">
                       {(acts[3][i] * 100).toFixed(0)}%
                     </text>
                   )}
@@ -207,7 +207,7 @@ function NeuralMode() {
             }),
           )}
           {['INPUT LAYER', 'HIDDEN LAYERS', 'OUTPUT LAYER'].map((t, k) => (
-            <text key={t} x={k === 0 ? 70 : k === 1 ? 319 : 568} y={H - 6} textAnchor="middle" fill="#8B938C" fontSize="10" fontFamily="JetBrains Mono" letterSpacing="1.5">
+            <text key={t} x={k === 0 ? 70 : k === 1 ? 319 : 568} y={H - 6} textAnchor="middle" fill="#969F96" fontSize="10" fontFamily="JetBrains Mono" letterSpacing="1.5">
               {t}
             </text>
           ))}
@@ -550,7 +550,7 @@ function SecurityMode() {
               <div key={n} className="flex items-stretch gap-4">
                 <div className="flex flex-col items-center">
                   <motion.div
-                    animate={{ backgroundColor: on ? '#A3FF12' : '#080A08', borderColor: on ? '#A3FF12' : blocked ? '#F5F7F3' : '#263026' }}
+                    animate={{ backgroundColor: on ? '#A3FF12' : '#050705', borderColor: on ? '#A3FF12' : blocked ? '#F4F6F2' : '#273027' }}
                     className="relative flex h-4 w-4 items-center justify-center border"
                   >
                     {blocked && <span className="absolute font-mono text-[11px] leading-none text-paper">×</span>}
