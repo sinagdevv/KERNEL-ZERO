@@ -54,7 +54,7 @@ export default function Facilitators() {
                     alt=""
                     loading="lazy"
                     decoding="async"
-                    className={`h-full w-full object-contain object-center transition-[filter,transform,opacity] duration-500 ${
+                    className={`h-full w-full object-cover object-top transition-[filter,transform,opacity] duration-500 ${
                       isActive
                         ? "scale-[1.02] opacity-100"
                         : "opacity-75 grayscale-[0.2] group-hover:opacity-100 group-hover:grayscale-0"

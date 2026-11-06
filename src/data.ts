@@ -143,7 +143,7 @@ export const FACILITATORS = [
   {
     name: "Ares Yael Garcia",
     label: "ARES YAEL GARCIA",
-    image: "/portraits/ares-yael-garcia.jpe",
+    image: "/portraits/ares-yael-garcia.png",
   },
 ] as const
 

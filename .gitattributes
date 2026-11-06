@@ -119,6 +119,9 @@
 *.lib                filter=lfs diff=lfs merge=lfs -text
 *.wasm               filter=lfs diff=lfs merge=lfs -text
 
+# Keep public portrait bytes in Git so Git-connected Vercel builds receive the images.
+public/portraits/*  -filter -diff -merge -text
+
 # ---------------------------------------------------------------------------
 # Build Artifacts & Packages
 # ---------------------------------------------------------------------------
