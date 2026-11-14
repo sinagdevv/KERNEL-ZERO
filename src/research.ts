@@ -201,6 +201,15 @@ export const NVIDIA_IN_COURSE = [
   "Course research track: NVIDIA GPU architecture and accelerated AI.",
 ]
 
+/**
+ * Official NVIDIA logo. Leave null: NVIDIA's written authorization covering this site is not on file,
+ * and its brand rules forbid use "not expressly authorized in writing by NVIDIA".
+ * To publish after approval: copy the unmodified official file (variant: 16x9 white wordmark, for dark
+ * backgrounds) to public/nvidia/nvidia-logo.png and set { src: "/nvidia/nvidia-logo.png", alt: "NVIDIA logo" }.
+ * Never recolor, crop, scale non-uniformly or recreate it; the file's built-in padding is the clear space.
+ */
+export const NVIDIA_LOGO: { src: string; alt: string } | null = null
+
 const CC0 = "http://creativecommons.org/publicdomain/zero/1.0/"
 const PHOTO_BY = "Fritzchens Fritz from Berlin"
 const commons = (f: string) => `https://commons.wikimedia.org/wiki/File:${f}`

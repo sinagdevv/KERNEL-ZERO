@@ -6,6 +6,7 @@ import {
   NVIDIA_FOCUS,
   NVIDIA_IN_COURSE,
   NVIDIA_LINKS,
+  NVIDIA_LOGO,
   NVIDIA_PHOTOS,
   NVIDIA_PHOTO_CREDIT,
   NVIDIA_STEPS,
@@ -46,6 +47,22 @@ function Plate({ p, large = false }: { p: Photo; large?: boolean }) {
         </span>
       </figcaption>
     </figure>
+  )
+}
+
+/** Official logo, unmodified, shown only once NVIDIA_LOGO is set (requires NVIDIA's written authorization). */
+function LogoPlate() {
+  if (!NVIDIA_LOGO) return null
+  return (
+    <img
+      src={NVIDIA_LOGO.src}
+      alt={NVIDIA_LOGO.alt}
+      width={3840}
+      height={2160}
+      loading="lazy"
+      decoding="async"
+      className="mt-6 aspect-video w-full max-w-[260px] border border-line bg-black object-contain"
+    />
   )
 }
 
@@ -156,6 +173,7 @@ export default function Nvidia() {
 
           <div className="lg:col-span-6">
             <Plate p={NVIDIA_PHOTOS[0]} large />
+            <LogoPlate />
             <a
               href="https://developer.nvidia.com/developer-program"
               target="_blank"
