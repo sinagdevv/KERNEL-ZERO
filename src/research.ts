@@ -200,3 +200,52 @@ export const NVIDIA_IN_COURSE = [
   "The GPU & Accelerated Computing module covers parallelism, CUDA fundamentals, tensor operations and the memory hierarchy.",
   "Course research track: NVIDIA GPU architecture and accelerated AI.",
 ]
+
+/**
+ * Official NVIDIA logo. Keep null until NVIDIA's written authorization covering this site is on file;
+ * set { src, alt } (official artwork only, unaltered, with clear space) to publish it.
+ */
+export const NVIDIA_LOGO: { src: string; alt: string } | null = null
+
+const CC0 = "http://creativecommons.org/publicdomain/zero/1.0/"
+const PHOTO_BY = "Fritzchens Fritz from Berlin"
+const commons = (f: string) => `https://commons.wikimedia.org/wiki/File:${f}`
+
+// Third-party photographs, all CC0 (verified on each Commons file page, 2026-11-14). Not KERNEL//ZERO hardware.
+export const NVIDIA_PHOTOS = [
+  {
+    src: "/nvidia/turing-dies-feature.jpg",
+    w: 1280,
+    h: 720,
+    plate: "PLATE 01",
+    alt: "Photograph of three NVIDIA Turing GPU dies, TU104, TU106 and TU116, lit to show the iridescent layers of their circuitry.",
+    caption: "NVIDIA Turing TU104, TU106 and TU116 GPU dies.",
+    page: commons("Turing_Chips_TU104_TU106_TU116_DSC08849-DSC08940_-_ZS-retouched_(50914922912).jpg"),
+  },
+  {
+    src: "/nvidia/turing-dies-stacked.jpg",
+    w: 960,
+    h: 540,
+    plate: "PLATE 02",
+    alt: "Photograph of three NVIDIA Turing GPU dies stacked on one another, largest on top.",
+    caption: "The same three dies, stacked for comparison of size.",
+    page: commons("Stacked_Turing_Chips_TU104_TU106_TU116_DSC08577-DSC08577_(50891015413).jpg"),
+  },
+  {
+    src: "/nvidia/turing-dies-trio.jpg",
+    w: 960,
+    h: 540,
+    plate: "PLATE 03",
+    alt: "Photograph of three NVIDIA Turing GPU dies lying side by side, each reflecting a different color.",
+    caption: "Dies side by side: each is a different design and size.",
+    page: commons("Turing_Chips_TU104_TU106_TU116_DSC09169-DSC09169_(50914923407).jpg"),
+  },
+]
+export const NVIDIA_PHOTO_CREDIT = { by: PHOTO_BY, license: "CC0 1.0", url: CC0 }
+
+export const NVIDIA_STEPS = [
+  { n: "01", title: "Developer accounts introduced", body: "Set up early in the course as part of our learning environment." },
+  { n: "02", title: "Learning resources opened", body: "Documentation, tools and training material from the NVIDIA developer ecosystem." },
+  { n: "03", title: "Architecture & CUDA studied", body: "GPU architecture, CUDA fundamentals and accelerated computing in the course module." },
+  { n: "04", title: "Independent research focus", body: "Our own academic direction: NVIDIA GPU architecture and accelerated AI." },
+]

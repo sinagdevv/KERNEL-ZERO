@@ -1,0 +1,7 @@
+Photographs: "Nvidia Turing TU104, TU106 and TU116 GPU dies" by Fritzchens Fritz from Berlin.
+License: CC0 1.0 Universal (public domain dedication) - http://creativecommons.org/publicdomain/zero/1.0/
+Verified on Wikimedia Commons file pages, 2026-11-14. Downscaled copies, otherwise unaltered.
+  turing-dies-feature.jpg : https://commons.wikimedia.org/wiki/File:Turing_Chips_TU104_TU106_TU116_DSC08849-DSC08940_-_ZS-retouched_(50914922912).jpg
+  turing-dies-stacked.jpg : https://commons.wikimedia.org/wiki/File:Stacked_Turing_Chips_TU104_TU106_TU116_DSC08577-DSC08577_(50891015413).jpg
+  turing-dies-trio.jpg    : https://commons.wikimedia.org/wiki/File:Turing_Chips_TU104_TU106_TU116_DSC09169-DSC09169_(50914923407).jpg
+These are third-party photographs, not KERNEL//ZERO hardware.
