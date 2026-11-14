@@ -6,7 +6,6 @@ import {
   NVIDIA_FOCUS,
   NVIDIA_IN_COURSE,
   NVIDIA_LINKS,
-  NVIDIA_LOGO,
   NVIDIA_PHOTOS,
   NVIDIA_PHOTO_CREDIT,
   NVIDIA_STEPS,
@@ -47,21 +46,6 @@ function Plate({ p, large = false }: { p: Photo; large?: boolean }) {
         </span>
       </figcaption>
     </figure>
-  )
-}
-
-/** Official logo only when NVIDIA_LOGO is set; otherwise a reserved, unlabeled-as-logo placement. */
-function LogoSlot() {
-  return NVIDIA_LOGO ? (
-    <img src={NVIDIA_LOGO.src} alt={NVIDIA_LOGO.alt} className="h-10 w-auto" />
-  ) : (
-    <div
-      className="flex h-14 w-44 items-center justify-center border border-dashed border-line px-3 text-center label !text-[9px] leading-snug text-mute"
-      role="note"
-      aria-label="Reserved placement for the official NVIDIA logo, pending written approval"
-    >
-      OFFICIAL LOGO PLACEMENT / PENDING APPROVAL
-    </div>
   )
 }
 
@@ -172,17 +156,18 @@ export default function Nvidia() {
 
           <div className="lg:col-span-6">
             <Plate p={NVIDIA_PHOTOS[0]} large />
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
-              <LogoSlot />
-              <a
-                href="https://developer.nvidia.com/developer-program"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[14px] text-paper transition-colors hover:text-lime"
-              >
-                NVIDIA Developer Program <ArrowUpRight className="h-4 w-4 text-nv" aria-hidden />
-              </a>
-            </div>
+            <a
+              href="https://developer.nvidia.com/developer-program"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 flex items-center justify-between gap-4 border border-line px-4 py-3.5 transition-colors hover:border-nv"
+            >
+              <span>
+                <span className="label block !text-[10px] text-mute">Learning resource</span>
+                <span className="mt-1 block text-[15px] text-paper">NVIDIA Developer Program</span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-nv" aria-hidden />
+            </a>
             <dl className="mt-5 grid gap-4 border-t border-line pt-5 text-[14px] sm:grid-cols-2">
               <div>
                 <dt className="label !text-[10px] text-mute">Course research track</dt>

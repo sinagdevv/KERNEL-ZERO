@@ -201,12 +201,6 @@ export const NVIDIA_IN_COURSE = [
   "Course research track: NVIDIA GPU architecture and accelerated AI.",
 ]
 
-/**
- * Official NVIDIA logo. Keep null until NVIDIA's written authorization covering this site is on file;
- * set { src, alt } (official artwork only, unaltered, with clear space) to publish it.
- */
-export const NVIDIA_LOGO: { src: string; alt: string } | null = null
-
 const CC0 = "http://creativecommons.org/publicdomain/zero/1.0/"
 const PHOTO_BY = "Fritzchens Fritz from Berlin"
 const commons = (f: string) => `https://commons.wikimedia.org/wiki/File:${f}`
