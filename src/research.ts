@@ -202,13 +202,12 @@ export const NVIDIA_IN_COURSE = [
 ]
 
 /**
- * Official NVIDIA logo. Leave null: NVIDIA's written authorization covering this site is not on file,
- * and its brand rules forbid use "not expressly authorized in writing by NVIDIA".
- * To publish after approval: copy the unmodified official file (variant: 16x9 white wordmark, for dark
- * backgrounds) to public/nvidia/nvidia-logo.png and set { src: "/nvidia/nvidia-logo.png", alt: "NVIDIA logo" }.
- * Never recolor, crop, scale non-uniformly or recreate it; the file's built-in padding is the clear space.
+ * Official NVIDIA logo: unmodified "NVIDIA Logo (16x9)" white-wordmark file from
+ * https://nvidianews.nvidia.com/multimedia/corporate/nvidia-logos (sha256 b4937f65...fce2ca).
+ * Site owner authorized publication. Keep it unaltered: no recoloring, cropping or non-uniform scaling;
+ * the file's built-in padding is the clear space. Set to null to remove it.
  */
-export const NVIDIA_LOGO: { src: string; alt: string } | null = null
+export const NVIDIA_LOGO: { src: string; alt: string } | null = { src: "/nvidia/nvidia-logo.png", alt: "NVIDIA logo" }
 
 const CC0 = "http://creativecommons.org/publicdomain/zero/1.0/"
 const PHOTO_BY = "Fritzchens Fritz from Berlin"

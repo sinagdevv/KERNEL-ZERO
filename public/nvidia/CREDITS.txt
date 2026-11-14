@@ -5,3 +5,8 @@ Verified on Wikimedia Commons file pages, 2026-11-14. Downscaled copies, otherwi
   turing-dies-stacked.jpg : https://commons.wikimedia.org/wiki/File:Stacked_Turing_Chips_TU104_TU106_TU116_DSC08577-DSC08577_(50891015413).jpg
   turing-dies-trio.jpg    : https://commons.wikimedia.org/wiki/File:Turing_Chips_TU104_TU106_TU116_DSC09169-DSC09169_(50914923407).jpg
 These are third-party photographs, not KERNEL//ZERO hardware.
+
+NVIDIA logo: nvidia-logo.png is NVIDIA's official, unmodified "NVIDIA Logo (16x9)" file (white wordmark) from
+https://nvidianews.nvidia.com/multimedia/corporate/nvidia-logos . NVIDIA and the NVIDIA logo are trademarks of
+NVIDIA Corporation. Published at the site owner's direction. KERNEL//ZERO is independent and is not affiliated
+with, sponsored, or endorsed by NVIDIA.
