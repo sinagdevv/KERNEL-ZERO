@@ -7,9 +7,8 @@ import {
   ONT_STANDARDS,
   ONT_TOPICS,
 } from "../research"
-import { Marker, MaskLines, Reveal } from "./ui"
 
-const W = 150
+const W = 172
 const H = 44
 const node = (id: string) => ONT_NODES.find((n) => n.id === id)!
 
@@ -147,122 +146,101 @@ function Explorer() {
   )
 }
 
-export default function Ontology() {
+export default function OntologyModule() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <>
-      <section className="pt-28 md:pt-36">
-        <div className="shell">
-          <Marker>Ontology research</Marker>
-          <h1 className="mt-10 font-display text-[clamp(38px,7vw,112px)] font-semibold leading-[0.88] tracking-[-0.06em]">
-            <MaskLines
-              animateNow
-              lines={[
-                "MODELING INTELLIGENCE",
-                <span className="text-mute">THROUGH RELATIONSHIPS.</span>,
-              ]}
-            />
-          </h1>
-          <Reveal delay={0.1}>
-            <p className="mt-8 max-w-[560px] text-[18px] leading-snug text-paper">
-              Understanding how concepts, entities, actions, and policies
-              connect.
-            </p>
-            <p className="mt-6 max-w-[560px] border-l border-line pl-4 text-[13px] leading-relaxed text-mute">
-              Source note: this page is a standards-based foundation (W3C and
-              NIST). Course-specific ontology video material has not been
-              reviewed for this version and will be integrated after source
-              review.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28" aria-labelledby="topics">
-        <div className="shell">
-          <h2 id="topics" className="label text-nv">
-            01 / FOUNDATIONS
-          </h2>
-          <ol className="mt-8 grid gap-x-16 md:grid-cols-2">
-            {ONT_TOPICS.map((t, i) => (
-              <li key={t.title} className="border-t border-line py-6">
-                <p className="label text-mute">0{i + 1}</p>
-                <h3 className="mt-2 font-display text-[22px] font-medium tracking-[-0.03em]">
-                  {t.title}
-                </h3>
-                <p className="mt-3 max-w-[520px] text-[15px] leading-relaxed text-paper/80">
-                  {t.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section
-        className="border-t border-line py-20 md:py-28"
-        aria-labelledby="explorer"
+    <div className="mt-10 border border-line bg-carbon/30">
+      <button
+        aria-expanded={open}
+        aria-controls="ontology-panel"
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between gap-6 p-5 text-left cursor-pointer md:p-8"
       >
-        <div className="shell">
-          <h2 id="explorer" className="label text-nv">
-            02 / ONTOLOGY EXPLORER
-          </h2>
-          <p className="mt-4 mb-10 max-w-[640px] text-[14px] leading-relaxed text-mute">
-            An illustrative model of an agent-authorization domain. It is a
-            teaching aid, not a formally validated ontology. Select a concept
-            to see its definition, relationships and security implications.
-          </p>
-          <Explorer />
-        </div>
-      </section>
+        <span>
+          <span className="label block text-nv">EXPLORE ONTOLOGY</span>
+          <span className="mt-2 block font-display text-[clamp(20px,2.4vw,30px)] font-medium tracking-[-0.03em]">
+            Modeling intelligence through relationships
+          </span>
+        </span>
+        <span
+          aria-hidden
+          className={`text-[28px] leading-none text-nv transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+        >
+          +
+        </span>
+      </button>
 
-      <section
-        className="border-t border-line py-20 md:py-28"
-        aria-labelledby="layers"
-      >
-        <div className="shell">
-          <h2 id="layers" className="label text-nv">
-            03 / LAYERED RISK FRAMEWORK
-          </h2>
-          <p className="mt-4 mb-10 max-w-[640px] text-[14px] leading-relaxed text-mute">
-            A proposed way to reason about where ontology-driven systems can
-            fail. It is a threat-modeling framework, not a claim that every
-            control exists in any system.
+      {open && (
+        <div id="ontology-panel" className="border-t border-line p-5 md:p-8">
+          <p className="max-w-[640px] text-[14px] leading-relaxed text-mute">
+            Understanding how concepts, entities, actions, and policies
+            connect. This is an illustrative teaching model, not a formally
+            validated ontology. Select a concept to see its definition,
+            relationships and security implications.
           </p>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-left text-[14px]">
-              <caption className="sr-only">
-                Six layers with a representative risk and control each
-              </caption>
-              <thead>
-                <tr className="label !text-[10px] text-mute">
-                  <th className="border-b border-line py-3 pr-4 font-normal">Layer</th>
-                  <th className="border-b border-line py-3 pr-4 font-normal">Representative risk</th>
-                  <th className="border-b border-line py-3 font-normal">Representative control</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ONT_LAYERS.map((l) => (
-                  <tr key={l.n} className="align-top">
-                    <th scope="row" className="border-b border-line py-4 pr-4 font-display font-medium">
-                      <span className="label mr-3 text-nv">{l.n}</span>
-                      {l.name}
-                    </th>
-                    <td className="border-b border-line py-4 pr-4 text-paper/80">{l.risk}</td>
-                    <td className="border-b border-line py-4 text-paper/80">{l.control}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <p className="mt-3 max-w-[640px] border-l border-line pl-4 text-[13px] leading-relaxed text-mute">
+            Source note: standards-based foundation (W3C and NIST).
+            Course-specific ontology video material has not yet been reviewed
+            and will be integrated after source review.
+          </p>
+          <div className="mt-8">
+            <Explorer />
           </div>
-        </div>
-      </section>
 
-      <section className="border-t border-line py-16" aria-labelledby="standards">
-        <div className="shell">
-          <h2 id="standards" className="label text-nv">
-            04 / STANDARDS
-          </h2>
-          <ul className="mt-6 flex flex-wrap gap-3">
+          <details className="group mt-10 border-t border-line pt-4">
+            <summary className="label flex cursor-pointer list-none items-center justify-between text-mute hover:text-paper">
+              <span>Foundations: eight core ideas</span>
+              <span className="text-nv transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ol className="mt-4 grid gap-x-12 md:grid-cols-2">
+              {ONT_TOPICS.map((t, i) => (
+                <li key={t.title} className="border-t border-line py-5">
+                  <p className="label text-mute">0{i + 1}</p>
+                  <h4 className="mt-2 font-display text-[19px] font-medium tracking-[-0.03em]">{t.title}</h4>
+                  <p className="mt-2 text-[14px] leading-relaxed text-paper/80">{t.body}</p>
+                </li>
+              ))}
+            </ol>
+          </details>
+
+          <details className="group mt-2 border-t border-line pt-4">
+            <summary className="label flex cursor-pointer list-none items-center justify-between text-mute hover:text-paper">
+              <span>Six-layer security risk framework</span>
+              <span className="text-nv transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p className="mt-4 max-w-[640px] text-[13px] leading-relaxed text-mute">
+              A proposed way to reason about where ontology-driven systems can
+              fail. It is a threat-modeling framework, not a claim that every
+              control exists in any system.
+            </p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left text-[14px]">
+                <caption className="sr-only">Six layers with a representative risk and control each</caption>
+                <thead>
+                  <tr className="label !text-[10px] text-mute">
+                    <th className="border-b border-line py-3 pr-4 font-normal">Layer</th>
+                    <th className="border-b border-line py-3 pr-4 font-normal">Representative risk</th>
+                    <th className="border-b border-line py-3 font-normal">Representative control</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ONT_LAYERS.map((l) => (
+                    <tr key={l.n} className="align-top">
+                      <th scope="row" className="border-b border-line py-4 pr-4 font-display font-medium">
+                        <span className="label mr-3 text-nv">{l.n}</span>
+                        {l.name}
+                      </th>
+                      <td className="border-b border-line py-4 pr-4 text-paper/80">{l.risk}</td>
+                      <td className="border-b border-line py-4 text-paper/80">{l.control}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <ul className="mt-8 flex flex-wrap gap-3 border-t border-line pt-6" aria-label="Standards">
             {ONT_STANDARDS.map((s) => (
               <li key={s.url}>
                 <a
@@ -277,7 +255,7 @@ export default function Ontology() {
             ))}
           </ul>
         </div>
-      </section>
-    </>
+      )}
+    </div>
   )
 }

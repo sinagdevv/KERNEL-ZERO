@@ -22,15 +22,13 @@ import Principles from "./components/Principles"
 
 import Roadmap from "./components/Roadmap"
 
-import Ontology from "./components/Ontology"
-
 import Patents from "./components/Patents"
 
 import Projects from "./components/Projects"
 
 import Nvidia from "./components/Nvidia"
 
-import { TAB_META, TAB_PATH, tabFromLocation, type Tab } from "./data"
+import { TAB_META, TAB_PATH, scrollToId, tabFromLocation, type Tab } from "./data"
 
 export default function App() {
   const [tab, setTabState] = useState<Tab>(tabFromLocation)
@@ -64,6 +62,16 @@ export default function App() {
 
       window.removeEventListener("popstate", onPop)
     }
+  }, [])
+
+  useEffect(() => {
+    // The old /ontology page now lives in Road Ahead; deep links land on its anchor.
+    if (window.location.pathname.replace(/\/+$/, "") === "/ontology")
+      window.history.replaceState(null, "", "/#roadmap")
+
+    const id = window.location.hash.slice(1)
+
+    if (id && id !== "people") setTimeout(() => scrollToId(id), 400)
   }, [])
 
   useEffect(() => {
@@ -103,8 +111,6 @@ export default function App() {
           </div>
         ) : tab === "projects" ? (
           <Projects />
-        ) : tab === "ontology" ? (
-          <Ontology />
         ) : (
           <Patents />
         )}

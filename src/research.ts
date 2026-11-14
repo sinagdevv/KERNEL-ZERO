@@ -168,3 +168,35 @@ export const ONT_STANDARDS = [
   { label: "W3C PROV-O", url: "https://www.w3.org/TR/prov-o/" },
   { label: "NIST AI RMF", url: "https://airc.nist.gov/" },
 ]
+
+// ---------- NVIDIA research & developer ecosystem ----------
+// Links are NVIDIA's public pages. Resource names come from those pages (checked 2026-11-14).
+// Listing a resource is NOT a claim that students used it, were certified, or ran on specific hardware.
+
+export const NVIDIA_LINKS = [
+  { label: "Explore NVIDIA Developer", url: "https://developer.nvidia.com/" },
+  { label: "NVIDIA Developer Program", url: "https://developer.nvidia.com/developer-program" },
+  { label: "NVIDIA Higher Education & Research", url: "https://developer.nvidia.com/higher-education-and-research" },
+]
+
+export const NVIDIA_FOCUS = [
+  { n: "01", name: "GPU Architecture", note: "How parallel hardware is organized" },
+  { n: "02", name: "Accelerated Computing", note: "Moving work from CPU to GPU" },
+  { n: "03", name: "AI Systems", note: "Models, tools and the compute beneath them" },
+  { n: "04", name: "Developer Resources", note: "Documentation, tools and learning material" },
+]
+
+export const NVIDIA_AVAILABLE = [
+  "CUDA Toolkit",
+  "Nsight Tools",
+  "Deep Learning Institute courses",
+  "Technical blogs and hardware documentation",
+  "Research papers and white papers",
+  "Developer forums",
+]
+
+export const NVIDIA_IN_COURSE = [
+  "NVIDIA Developer accounts were introduced early in the coursework.",
+  "The GPU & Accelerated Computing module covers parallelism, CUDA fundamentals, tensor operations and the memory hierarchy.",
+  "Course research track: NVIDIA GPU architecture and accelerated AI.",
+]

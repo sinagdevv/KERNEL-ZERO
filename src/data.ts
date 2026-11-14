@@ -1,4 +1,4 @@
-export type Tab = "program" | "people" | "projects" | "ontology" | "patents"
+export type Tab = "program" | "people" | "projects" | "patents"
 
 export const BRAND = {
   name: "KERNEL//ZERO",
@@ -14,7 +14,6 @@ export const TABS: { id: Tab; label: string }[] = [
   { id: "program", label: "Home" },
   { id: "people", label: "Researchers" },
   { id: "projects", label: "Projects" },
-  { id: "ontology", label: "Ontology" },
   { id: "patents", label: "Patents [?]" },
 ]
 
@@ -22,7 +21,6 @@ export const TAB_PATH: Record<Tab, string> = {
   program: "/",
   people: "/researchers",
   projects: "/projects",
-  ontology: "/ontology",
   patents: "/patents",
 }
 
@@ -30,8 +28,7 @@ export const TAB_META: Record<Tab, { title: string; description: string }> = {
   program: { title: "KERNEL//ZERO — Understanding Intelligence at Its Core.", description: "KERNEL//ZERO is an AI learning collective exploring intelligence at its core." },
   people: { title: "Researchers — KERNEL//ZERO", description: "Professor Sam Chughtai, the student facilitators and the KERNEL//ZERO cohort." },
   projects: { title: "Research Projects — KERNEL//ZERO", description: "Completed student research projects: C.A.G.E. and Lumen, with live demos and creator credits." },
-  ontology: { title: "Ontology — KERNEL//ZERO", description: "Modeling intelligence through relationships: an interactive introduction to ontology for AI agents." },
-  patents: { title: "Patents [?] — KERNEL//ZERO", description: "Research archive: future work that has not yet been publicly disclosed." },
+  patents: { title: "Patents [?] — KERNEL//ZERO", description: "Upcoming research under Professor Sam Chughtai on security and governance in agentic AI. Details of ongoing intellectual property work remain undisclosed." },
 }
 
 export function tabFromLocation(): Tab {
@@ -54,7 +51,6 @@ export const NAV: Record<Tab, { id: string; label: string }[]> = {
     { id: "cohort", label: "The Cohort" },
   ],
   projects: [],
-  ontology: [],
   patents: [],
 }
 
