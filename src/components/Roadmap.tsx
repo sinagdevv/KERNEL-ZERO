@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { ROADMAP } from '../data'
+import ResearchDirections from './ResearchDirections'
 import Viz from './Viz'
 import { EASE, Marker, MaskLines, Reveal } from './ui'
 
@@ -127,6 +128,8 @@ export default function Roadmap() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        <ResearchDirections />
       </div>
     </section>
   )

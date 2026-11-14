@@ -40,18 +40,16 @@ export default function Patents() {
         <div className="lg:col-span-7">
           <Marker>RESEARCH ARCHIVE / FUTURE WORK</Marker>
           <h1 className="mt-10 font-display text-[clamp(40px,6.5vw,104px)] font-semibold leading-[0.9] tracking-[-0.055em]">
-            What's Next Remains <span className="text-mute">Unrevealed.</span>
+            THE NEXT <span className="text-mute">BREAKTHROUGH?</span>
           </h1>
-          <p className="mt-8 max-w-[480px] text-[17px] leading-relaxed text-mute">
-            Selected research directions are under development. Further
-            details will be shared when appropriate.
-          </p>
-          <p className="mt-4 max-w-[480px] text-[14px] leading-relaxed text-mute/80">
-            Research initiatives led by Professor Sam Chughtai and
-            contributing researchers.
+          <p className="mt-8 max-w-[520px] text-[17px] leading-relaxed text-mute">
+            Under the research leadership of Professor Sam Chughtai, our team
+            is exploring new approaches to security and governance in agentic
+            AI systems. Details of ongoing intellectual property work remain
+            undisclosed.
           </p>
           <p className="mt-10 border-l border-nv pl-4 label text-paper">
-            PUBLIC DISCLOSURE — NOT AVAILABLE
+            UPCOMING RESEARCH / DETAILS UNDISCLOSED
           </p>
           <p className="mt-4 max-w-[420px] label !text-[10px] leading-relaxed text-mute opacity-100 transition-opacity duration-500 lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100">
             No filing, status or technical detail is being published at this
