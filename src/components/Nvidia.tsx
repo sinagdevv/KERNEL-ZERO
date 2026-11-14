@@ -6,8 +6,64 @@ import {
   NVIDIA_FOCUS,
   NVIDIA_IN_COURSE,
   NVIDIA_LINKS,
+  NVIDIA_LOGO,
+  NVIDIA_PHOTOS,
+  NVIDIA_PHOTO_CREDIT,
+  NVIDIA_STEPS,
 } from "../research"
-import { Marker, Reveal } from "./ui"
+import { Corners, Marker, Reveal } from "./ui"
+
+type Photo = (typeof NVIDIA_PHOTOS)[number]
+
+/** Third-party CC0 photograph shown as a specimen plate, with credit. */
+function Plate({ p, large = false }: { p: Photo; large?: boolean }) {
+  return (
+    <figure>
+      <div className="relative border border-line bg-paper">
+        <img
+          src={p.src}
+          alt={p.alt}
+          width={p.w}
+          height={p.h}
+          loading="lazy"
+          decoding="async"
+          className="aspect-video w-full object-cover"
+        />
+        <Corners />
+        <span className="absolute left-3 top-3 label !text-[10px] text-obsidian/70">{p.plate}</span>
+      </div>
+      <figcaption className={`mt-3 leading-relaxed text-mute ${large ? "text-[13px]" : "text-[12px]"}`}>
+        {p.caption}{" "}
+        <span className="label !text-[10px]">
+          PHOTO:{" "}
+          <a href={p.page} target="_blank" rel="noopener noreferrer" className="text-nv hover:text-lime">
+            {NVIDIA_PHOTO_CREDIT.by}
+          </a>{" "}
+          /{" "}
+          <a href={NVIDIA_PHOTO_CREDIT.url} target="_blank" rel="noopener noreferrer" className="text-nv hover:text-lime">
+            {NVIDIA_PHOTO_CREDIT.license}
+          </a>
+          . THIRD-PARTY IMAGE, NOT KERNEL//ZERO HARDWARE.
+        </span>
+      </figcaption>
+    </figure>
+  )
+}
+
+/** Official logo only when NVIDIA_LOGO is set; otherwise a reserved, unlabeled-as-logo placement. */
+function LogoSlot() {
+  return NVIDIA_LOGO ? (
+    <img src={NVIDIA_LOGO.src} alt={NVIDIA_LOGO.alt} className="h-10 w-auto" />
+  ) : (
+    <div
+      className="flex h-14 w-44 items-center justify-center border border-dashed border-line px-3 text-center label !text-[9px] leading-snug text-mute"
+      role="note"
+      aria-label="Reserved placement for the official NVIDIA logo, pending written approval"
+    >
+      OFFICIAL LOGO PLACEMENT / PENDING APPROVAL
+    </div>
+  )
+}
 
 /** Original, illustrative diagram. Not an NVIDIA architecture drawing. */
 function ComputeDiagram() {
@@ -115,8 +171,19 @@ export default function Nvidia() {
           </div>
 
           <div className="lg:col-span-6">
-            <ComputeDiagram />
-            <dl className="mt-6 grid gap-4 border-t border-line pt-5 text-[14px] sm:grid-cols-2">
+            <Plate p={NVIDIA_PHOTOS[0]} large />
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
+              <LogoSlot />
+              <a
+                href="https://developer.nvidia.com/developer-program"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[14px] text-paper transition-colors hover:text-lime"
+              >
+                NVIDIA Developer Program <ArrowUpRight className="h-4 w-4 text-nv" aria-hidden />
+              </a>
+            </div>
+            <dl className="mt-5 grid gap-4 border-t border-line pt-5 text-[14px] sm:grid-cols-2">
               <div>
                 <dt className="label !text-[10px] text-mute">Course research track</dt>
                 <dd className="mt-1.5 label !text-[11px] leading-snug text-lime">
@@ -130,6 +197,31 @@ export default function Nvidia() {
                 </dd>
               </div>
             </dl>
+          </div>
+        </div>
+
+        <div className="mt-20">
+          <h3 className="label text-nv">NVIDIA DEVELOPER COURSEWORK</h3>
+          <ol className="relative mt-6 grid gap-8 md:grid-cols-4 md:gap-0">
+            <span aria-hidden className="absolute left-0 right-0 top-[7px] hidden h-px bg-line md:block" />
+            {NVIDIA_STEPS.map((st) => (
+              <li key={st.n} className="relative md:pr-8">
+                <span aria-hidden className="block h-[15px] w-[15px] rotate-45 scale-[0.6] border border-nv bg-obsidian" />
+                <p className="label mt-5 !text-[10px] text-nv">{st.n}</p>
+                <p className="mt-2 font-display text-[19px] font-medium leading-tight tracking-[-0.02em]">
+                  {st.title}
+                </p>
+                <p className="mt-2 text-[14px] leading-relaxed text-mute">{st.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Plate p={NVIDIA_PHOTOS[1]} />
+          <Plate p={NVIDIA_PHOTOS[2]} />
+          <div className="md:col-span-2 lg:col-span-1">
+            <ComputeDiagram />
           </div>
         </div>
 
