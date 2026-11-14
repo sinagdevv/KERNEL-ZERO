@@ -94,7 +94,7 @@ export default function Nav({
       >
         <div className="shell relative flex h-16 items-center justify-between">
           <button
-            onClick={() => go("top")}
+            onClick={() => (tab === "program" ? go("top") : setTab("program"))}
             className="shrink-0 cursor-pointer"
             aria-label={`${BRAND.name}, back to top`}
           >
@@ -102,9 +102,9 @@ export default function Nav({
           </button>
           <nav
             aria-label="Primary"
-            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
+            className="mx-4 hidden min-w-0 flex-1 justify-center xl:flex"
           >
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-5">
               {items.map((n) => (
                 <li key={n.id}>
                   <button
@@ -129,18 +129,16 @@ export default function Nav({
             </ul>
           </nav>
           <div className="flex items-center justify-end gap-5">
-            <div
-              className="hidden items-center gap-1 border border-line p-0.5 sm:flex"
-              role="tablist"
-              aria-label="Site sections"
+            <nav
+              aria-label="Pages"
+              className="hidden shrink-0 items-center gap-0.5 border border-line p-0.5 lg:flex"
             >
               {TABS.map((t) => (
                 <button
                   key={t.id}
-                  role="tab"
-                  aria-selected={tab === t.id}
+                  aria-current={tab === t.id ? "page" : undefined}
                   onClick={() => setTab(t.id)}
-                  className={`px-3 py-1.5 text-[13px] transition-colors cursor-pointer ${
+                  className={`whitespace-nowrap px-2.5 py-1.5 text-[13px] transition-colors cursor-pointer ${
                     tab === t.id
                       ? "bg-paper text-obsidian"
                       : "text-mute hover:text-paper"
@@ -149,7 +147,7 @@ export default function Nav({
                   {t.label}
                 </button>
               ))}
-            </div>
+            </nav>
             <button
               className="relative flex h-10 w-10 items-center justify-center lg:hidden cursor-pointer"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -185,11 +183,11 @@ export default function Nav({
               aria-label="Mobile"
               className="shell relative flex flex-1 flex-col justify-center pt-16"
             >
-              <p className="mb-8 label text-mute">Navigate / {tab}</p>
+              <p className="mb-8 label text-mute">Navigate</p>
               <ul className="border-t border-line">
-                {items.map((n, i) => (
+                {TABS.map((t, i) => (
                   <motion.li
-                    key={n.id}
+                    key={t.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -200,37 +198,39 @@ export default function Nav({
                     className="border-b border-line"
                   >
                     <button
-                      onClick={() => go(n.id)}
-                      className="flex w-full items-baseline gap-5 py-5 text-left cursor-pointer"
+                      aria-current={tab === t.id ? "page" : undefined}
+                      onClick={() => {
+                        setTab(t.id)
+                        setOpen(false)
+                      }}
+                      className="flex w-full items-baseline gap-5 py-3.5 text-left cursor-pointer"
                     >
                       <span className="label text-nv">0{i + 1}</span>
-                      <span className="font-display text-[clamp(28px,8vw,48px)] font-medium tracking-[-0.03em]">
-                        {n.label}
+                      <span
+                        className={`font-display text-[clamp(26px,7vw,40px)] font-medium tracking-[-0.03em] ${
+                          tab === t.id ? "text-lime" : ""
+                        }`}
+                      >
+                        {t.label}
                       </span>
                     </button>
                   </motion.li>
                 ))}
               </ul>
-              <div className="mt-10 flex gap-2" role="tablist">
-                {TABS.map((t) => (
-                  <button
-                    key={t.id}
-                    role="tab"
-                    aria-selected={tab === t.id}
-                    onClick={() => {
-                      setTab(t.id)
-                      setOpen(false)
-                    }}
-                    className={`border px-4 py-2 text-[14px] cursor-pointer ${
-                      tab === t.id
-                        ? "border-paper bg-paper text-obsidian"
-                        : "border-line text-mute"
-                    }`}
-                  >
-                    {t.label}
-                  </button>
-                ))}
-              </div>
+              {items.length > 0 && (
+                <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                  {items.map((n) => (
+                    <li key={n.id}>
+                      <button
+                        onClick={() => go(n.id)}
+                        className="label text-mute hover:text-paper cursor-pointer"
+                      >
+                        {n.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </nav>
           </motion.div>
         )}

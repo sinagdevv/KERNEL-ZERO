@@ -1,6 +1,7 @@
 import { motion } from "motion/react"
 import { useState } from "react"
 import { FACILITATORS } from "../data"
+import { PROJECT_BY_PERSON } from "../research"
 import { EASE, Marker, MaskLines, Reveal } from "./ui"
 
 export default function Facilitators() {
@@ -76,6 +77,11 @@ export default function Facilitators() {
                   >
                     {person.label}
                   </p>
+                  {PROJECT_BY_PERSON[person.name] && (
+                    <p className="label mt-3 !text-[10px] text-mute">
+                      PROJECT / {PROJECT_BY_PERSON[person.name].join(", ")}
+                    </p>
+                  )}
                   <div
                     className={`mt-4 h-px bg-nv transition-transform duration-500 origin-left ${
                       isActive ? "scale-x-100" : "scale-x-0"

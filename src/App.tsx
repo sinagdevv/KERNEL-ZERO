@@ -22,43 +22,57 @@ import Principles from "./components/Principles"
 
 import Roadmap from "./components/Roadmap"
 
-import type { Tab } from "./data"
+import Ontology from "./components/Ontology"
 
-const fromHash = (): Tab =>
-  window.location.hash === "#people" ? "people" : "program"
+import Patents from "./components/Patents"
+
+import Projects from "./components/Projects"
+
+import Nvidia from "./components/Nvidia"
+
+import { TAB_META, TAB_PATH, tabFromLocation, type Tab } from "./data"
 
 export default function App() {
-  const [tab, setTabState] = useState<Tab>(fromHash)
+  const [tab, setTabState] = useState<Tab>(tabFromLocation)
 
   const setTab = useCallback((t: Tab) => {
     setTabState(t)
 
-    window.history.replaceState(
-      null,
-      "",
-      t === "people" ? "#people" : window.location.pathname,
-    )
+    window.history.pushState(null, "", TAB_PATH[t])
 
     window.scrollTo({ top: 0 })
   }, [])
 
   useEffect(() => {
+    // scrollToId asks for the tab that owns a section; popstate handles back/forward.
     const onTab = (e: Event) => {
       const t = (e as CustomEvent<Tab>).detail
 
       setTabState(t)
 
-      window.history.replaceState(
-        null,
-        "",
-        t === "people" ? "#people" : window.location.pathname,
-      )
+      window.history.pushState(null, "", TAB_PATH[t])
     }
+
+    const onPop = () => setTabState(tabFromLocation())
 
     window.addEventListener("kz:tab", onTab)
 
-    return () => window.removeEventListener("kz:tab", onTab)
+    window.addEventListener("popstate", onPop)
+
+    return () => {
+      window.removeEventListener("kz:tab", onTab)
+
+      window.removeEventListener("popstate", onPop)
+    }
   }, [])
+
+  useEffect(() => {
+    document.title = TAB_META[tab].title
+
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", TAB_META[tab].description)
+  }, [tab])
 
   return (
     <>
@@ -79,12 +93,20 @@ export default function App() {
             <Principles />
             <Roadmap />
           </>
-        ) : (
+        ) : tab === "people" ? (
           <div className="pt-16 md:pt-20">
+            <h1 className="sr-only">Researchers</h1>
             <Faculty />
             <Facilitators />
+            <Nvidia />
             <Cohort />
           </div>
+        ) : tab === "projects" ? (
+          <Projects />
+        ) : tab === "ontology" ? (
+          <Ontology />
+        ) : (
+          <Patents />
         )}
       </main>
       <Closing />
