@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react"
 
 import { ArrowUp } from "lucide-react"
 
-import { NAV, scrollToId } from "../data"
+import { NAV, TABS, scrollToId } from "../data"
 
 import { Wordmark } from "./Nav"
 
@@ -105,12 +105,26 @@ export default function Closing() {
               AI CLASS COLLECTIVE
             </p>
             <p className="label mt-2 !text-[10px] text-mute">
-              GUIDED BY PROFESSOR SAM CHUGTHAI
+              GUIDED BY PROFESSOR SAM CHUGHTAI
             </p>
           </div>
           <nav aria-label="Footer" className="md:col-span-4">
             <p className="label !text-[10px] text-nv">INDEX</p>
             <ul className="mt-4 grid grid-cols-2 gap-y-3">
+              {TABS.slice(2).map((t) => (
+                <li key={t.id}>
+                  <button
+                    onClick={() => {
+                      window.dispatchEvent(new CustomEvent("kz:tab", { detail: t.id }))
+                      window.scrollTo({ top: 0 })
+                    }}
+                    className="group relative text-[14px] text-paper transition-colors hover:text-lime cursor-pointer"
+                  >
+                    {t.label}
+                    <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-nv transition-transform duration-[240ms] group-hover:scale-x-100" />
+                  </button>
+                </li>
+              ))}
               {[...NAV.program, ...NAV.people].map((n) => (
                 <li key={n.id}>
                   <button
